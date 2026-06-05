@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Your Invoices – AMG Associates</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--gold:#c9a84c;--gold2:#e8c97a;--cream:#faf7f2;--border:#e0d5c5;--green:#2d6a4f;--green2:#40916c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--ink);padding:0 40px;height:60px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold)}
+.brand{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold)}
+.brand small{color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;display:block;font-weight:400}
+.container{max-width:680px;margin:0 auto;padding:52px 24px;flex:1}
+/* SUCCESS BANNER */
+.success-banner{text-align:center;margin-bottom:40px}
+.check-circle{width:72px;height:72px;background:linear-gradient(135deg,var(--green),var(--green2));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 8px 24px rgba(45,106,79,.3)}
+.check-circle svg{width:36px;height:36px;stroke:#fff;stroke-width:2.5}
+.success-banner h1{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:8px}
+.success-banner p{color:#888;font-size:.92rem;max-width:380px;margin:0 auto}
+/* ORDER INFO */
+.order-info{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.order-info .oi-item label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#aaa;display:block;margin-bottom:2px}
+.order-info .oi-item span{font-size:.9rem;font-weight:600}
+/* DOWNLOAD SECTION */
+.dl-section-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:600;margin-bottom:14px}
+.dl-all-btn{width:100%;background:var(--ink);color:#fff;border:none;border-radius:8px;padding:15px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:14px}
+.dl-all-btn:hover{background:#2a2a4a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,26,46,.2)}
+.dl-list{display:flex;flex-direction:column;gap:9px;margin-bottom:28px}
+.dl-item{background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:border-color .2s}
+.dl-item:hover{border-color:var(--gold)}
+.dl-item .name{font-size:.88rem;font-weight:500;display:flex;align-items:center;gap:8px}
+.dl-item .name .ico{font-size:1.1rem}
+.dl-item .type{font-size:.7rem;color:#999;text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
+.dl-btn{background:var(--gold);color:var(--ink);border:none;padding:7px 16px;border-radius:5px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
+.dl-btn:hover{background:var(--gold2)}
+.dl-btn:disabled{opacity:.5;cursor:not-allowed}
+.dl-btn.done{background:#e8f5e9;color:var(--green)}
+/* NOTE BOX */
+.note-box{background:#fff8e7;border:1.5px solid #f0d070;border-radius:8px;padding:14px 18px;font-size:.82rem;color:#7a5c00;margin-bottom:24px;line-height:1.6}
+.note-box strong{display:block;margin-bottom:4px}
+/* EXPIRED */
+.expired-box{text-align:center;padding:52px 24px}
+.expired-box .icon{font-size:3.5rem;margin-bottom:14px}
+.expired-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:8px}
+.expired-box p{color:#888;margin-bottom:24px;font-size:.9rem}
+.expired-box a{background:var(--gold);color:var(--ink);text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:600;font-size:.9rem;display:inline-block}
+/* TOAST */
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--ink);color:#fff;padding:10px 22px;border-radius:6px;font-size:.86rem;z-index:9999;transition:transform .3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:14px;font-size:.9rem}
+.loading-overlay.show{display:flex}
+.spinner{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:600px){header{padding:0 14px}.container{padding:36px 14px}.order-info{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">AMG Associates<small>GST INVOICE TEMPLATES</small></div>
+  <a href="/" style="color:var(--gold);text-decoration:none;font-size:.8rem;border:1px solid var(--gold);padding:5px 14px;border-radius:3px">← New Order</a>
+</header>
+
+<div class="container">
+  <!-- Loaded dynamically -->
+  <div id="mainContent"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="loading-overlay" id="loading"><div class="spinner"></div><span>Preparing files...</span></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const token  = params.get('token') || sessionStorage.getItem('amg_token');
+
+async function init(){
+  if(!token){ showExpired('No download token found.'); return; }
+  // Fetch order info from token (decode client-side just to show order id, actual auth on server)
+  try{
+    // Try a HEAD request to validate token
+    const r = await fetch('/api/download/'+token, { method:'HEAD' });
+    if(r.status===401){ showExpired('This download link has expired (valid for 24 hours).'); return; }
+    if(r.status===403){ showExpired('Payment not confirmed for this order.'); return; }
+    // Decode JWT payload (no verification needed client-side, just for display)
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    showDownloads(token, payload.orderId);
+  }catch(e){
+    // If HEAD not supported, just show downloads and let server validate on actual download
+    showDownloads(token, '—');
+  }
+}
+
+async function showDownloads(token, orderId){
+  // Fetch order details to know which invoices were purchased
+  // We do this by attempting a small fetch; server validates token
+  // For display, we use the store API to get invoice list
+  try{
+    const storeR = await fetch('/api/store');
+    const store  = await storeR.json();
+    // We don't know which invoices without order details, so show all purchased ones
+    // The server will validate per-invoice on download
+    // Show a generic "your order" UI — downloads hit server which verifies
+    renderDownloadPage(token, orderId, store);
+  }catch(e){
+    showExpired('Could not load invoice list. Server may be down.');
+  }
+}
+
+function renderDownloadPage(token, orderId, store){
+  const shortId = orderId !== '—' ? orderId.slice(0,8).toUpperCase() : '—';
+  document.getElementById('mainContent').innerHTML = `
+    <div class="success-banner">
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Payment Confirmed!</h1>
+      <p>Your customized GST invoice templates are ready to download. All files have your company details embedded.</p>
+    </div>
+
+    <div class="order-info">
+      <div class="oi-item"><label>Order ID</label><span>#${shortId}</span></div>
+      <div class="oi-item"><label>Status</label><span style="color:var(--green)">✅ Paid &amp; Ready</span></div>
+      <div class="oi-item"><label>Link valid for</label><span>24 hours</span></div>
+    </div>
+
+    <div class="note-box">
+      <strong>💡 How to use your invoices</strong>
+      Open the downloaded .xlsx files in Microsoft Excel, LibreOffice Calc, or Google Sheets. Your company name, address, GSTIN, PAN and contact details are already filled in. Just add your customer details and item rows.
+    </div>
+
+    <div class="dl-section-title">Download Your Invoices</div>
+
+    <button class="dl-all-btn" onclick="downloadAll('${token}')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download All Selected Invoices (ZIP)
+    </button>
+
+    <div class="dl-list" id="dlList">
+      ${store.invoices.map(inv=>`
+        <div class="dl-item" id="dlrow_${inv.id}">
+          <div>
+            <div class="name"><span class="ico">${inv.icon}</span>${inv.name}</div>
+            <div class="type">${inv.type}</div>
+          </div>
+          <button class="dl-btn" onclick="downloadOne('${token}','${inv.id}',this)">⬇ Download</button>
+        </div>`).join('')}
+    </div>
+
+    <p style="text-align:center;font-size:.78rem;color:#bbb">Need help? Contact AMG Associates. Download link expires in 24 hours from payment.</p>
+  `;
+}
+
+async function downloadAll(token){
+  showLoad();
+  try{
+    const resp = await fetch('/api/download/'+token);
+    if(resp.status===401){ hideLoad(); showExpired('Download link expired.'); return; }
+    if(resp.status===403){ hideLoad(); toast('Payment not confirmed for this order.'); return; }
+    if(!resp.ok){ hideLoad(); toast('Download failed: '+resp.statusText); return; }
+    const blob = await resp.blob();
+    const cd   = resp.headers.get('content-disposition')||'';
+    const name = cd.match(/filename="?([^"]+)"?/)?.[1] || 'GST_Invoices.zip';
+    triggerDownload(blob, name);
+    hideLoad();
+    toast('✅ All invoices downloaded!');
+  }catch(e){ hideLoad(); toast('Error: '+e.message); }
+}
+
+async function downloadOne(token, invoiceId, btn){
+  btn.disabled=true; btn.textContent='⏳ Preparing...';
+  try{
+    const resp = await fetch(`/api/download-single/${token}/${invoiceId}`);
+    if(resp.status===401){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Link expired.'); return; }
+    if(resp.status===403){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Not in your order.'); return; }
+    if(!resp.ok){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Download failed.'); return; }
+    const blob = await resp.blob();
+    const cd   = resp.headers.get('content-disposition')||'';
+    const name = cd.match(/filename="?([^"]+)"?/)?.[1] || invoiceId+'.xlsx';
+    triggerDownload(blob, name);
+    btn.textContent='✅ Downloaded'; btn.classList.add('done');
+  }catch(e){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Error: '+e.message); }
+}
+
+function triggerDownload(blob, filename){
+  const url = URL.createObjectURL(blob);
+  const a   = document.createElement('a');
+  a.href=url; a.download=filename; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
+}
+
+function showExpired(msg){
+  document.getElementById('mainContent').innerHTML=`
+    <div class="expired-box">
+      <div class="icon">⏰</div>
+      <h2>Link Expired or Invalid</h2>
+      <p>${msg}</p>
+      <a href="/">Place a New Order</a>
+    </div>`;
+}
+
+function showLoad(){ document.getElementById('loading').classList.add('show'); }
+function hideLoad(){ document.getElementById('loading').classList.remove('show'); }
+function toast(msg){ const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500); }
+
+init();
+</script>
+</body>
+</html>
