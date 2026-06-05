@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMG Associates – GST Invoice Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a2e;--gold:#c9a84c;--gold2:#e8c97a;--cream:#faf7f2;--border:#e0d5c5;--green:#2d6a4f;--green2:#40916c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+/* HEADER */
+header{background:var(--ink);padding:0 40px;height:60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold)}
+.brand{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);display:flex;flex-direction:column;line-height:1.1}
+.brand small{color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;font-weight:400}
+/* HERO */
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 55%,#0f3460 100%);padding:52px 40px 44px;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.6rem;color:#fff;font-weight:900;line-height:1.1;margin-bottom:8px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{color:rgba(255,255,255,.55);font-size:.95rem;max-width:460px;margin:0 auto}
+/* STEPS NAV */
+.steps-nav{background:var(--ink);border-bottom:2px solid var(--gold);display:flex;justify-content:center}
+.sn{padding:12px 24px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:7px;border-bottom:3px solid transparent;transition:all .2s;cursor:default}
+.sn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.sn.done{color:rgba(255,255,255,.55);border-bottom-color:#2d6a4f}
+.sn-num{width:19px;height:19px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
+.sn.active .sn-num{background:var(--gold);color:var(--ink)}
+.sn.done .sn-num{background:#2d6a4f;color:#fff}
+/* SECTIONS */
+.sec{display:none;padding:40px;max-width:900px;margin:0 auto}
+.sec.on{display:block}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:4px}
+.sec-sub{color:#888;font-size:.86rem;margin-bottom:26px}
+.pbar-wrap{height:3px;background:#e8e3dc;border-radius:2px;margin-bottom:26px}
+.pbar{height:100%;background:var(--gold);border-radius:2px;transition:width .4s}
+/* FORM */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.fi{display:flex;flex-direction:column}
+.fi.full{grid-column:1/-1}
+.fi label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:5px;font-weight:500}
+.fi input,.fi textarea{border:1.5px solid var(--border);border-radius:6px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s}
+.fi input:focus,.fi textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.fi textarea{resize:vertical;min-height:68px}
+.logo-zone{border:2px dashed var(--border);border-radius:8px;padding:22px;text-align:center;cursor:pointer;position:relative;transition:all .2s;background:#fff}
+.logo-zone:hover{border-color:var(--gold)}
+.logo-zone input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.logo-preview{display:none;max-height:56px;margin:0 auto 8px;border-radius:4px}
+.logo-preview.show{display:block}
+/* TEMPLATE GRID */
+.tpl-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px;margin-bottom:24px}
+.tpl-card{background:#fff;border:2px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s;position:relative;user-select:none}
+.tpl-card:hover{border-color:var(--gold);box-shadow:0 6px 28px rgba(26,26,46,.12);transform:translateY(-2px)}
+.tpl-card.sel{border-color:var(--gold);background:#fffdf5}
+.tpl-card.sel::after{content:'✓';position:absolute;top:8px;right:8px;width:21px;height:21px;background:var(--gold);color:#fff;border-radius:50%;font-size:.68rem;font-weight:800;line-height:21px;text-align:center}
+.tpl-thumb{height:108px;background:linear-gradient(135deg,#f0ede8,#e8e3dc);display:flex;align-items:center;justify-content:center;font-size:2.2rem;border-bottom:1px solid var(--border)}
+.tpl-card.sel .tpl-thumb{background:linear-gradient(135deg,#fdf9ee,#f5eccc)}
+.tpl-meta{padding:10px 12px}
+.tpl-name{font-size:.78rem;font-weight:600;margin-bottom:2px}
+.tpl-type{font-size:.68rem;color:#999;text-transform:uppercase;letter-spacing:.07em}
+.tpl-price{font-size:.76rem;color:var(--gold);font-weight:700;margin-top:4px}
+/* ORDER BAR */
+.obar{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;bottom:14px;box-shadow:0 8px 32px rgba(26,26,46,.14)}
+.obar-info .oc{font-size:.76rem;color:#888}
+.obar-info .ot{font-size:1.3rem;font-weight:700}
+.obar-info .ot b{color:var(--gold)}
+/* REVIEW */
+.rv-card{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:22px 26px;margin-bottom:14px}
+.rv-head{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:600;margin-bottom:11px;padding-bottom:7px;border-bottom:1px solid var(--border)}
+.rv-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.rv-item label{font-size:.7rem;color:#aaa;display:block}
+.rv-item span{font-size:.88rem;word-break:break-word}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:#f5f0e8;border:1px solid var(--border);padding:3px 10px;border-radius:20px;font-size:.74rem}
+.total-box{background:linear-gradient(135deg,var(--ink),#16213e);border-radius:10px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.total-box .lbl{color:rgba(255,255,255,.5);font-size:.8rem}
+.total-box .amt{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold)}
+.total-box .itm{color:rgba(255,255,255,.4);font-size:.74rem;margin-top:1px}
+/* BUTTONS */
+.btn{border:none;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;font-size:.88rem;padding:11px 26px}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,168,76,.3)}
+.btn-gold:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--ink)}
+.btn-green{background:var(--green);color:#fff;width:100%;padding:15px;font-size:.95rem;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:9px}
+.btn-green:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 8px 22px rgba(45,106,79,.32)}
+.sa-btn{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:7px 16px;border-radius:4px;cursor:pointer;font-size:.78rem;font-family:'DM Sans',sans-serif;transition:all .2s}
+.sa-btn:hover{background:var(--gold);color:var(--ink)}
+.btn-row{display:flex;gap:9px;justify-content:flex-end;margin-top:24px;flex-wrap:wrap}
+/* PAY CONFIRM */
+.pay-confirm{display:none;margin-top:20px;background:#f0fdf4;border:2px solid #40916c;border-radius:10px;padding:22px;text-align:center}
+.pay-confirm h3{font-weight:700;margin-bottom:6px}
+.pay-confirm p{color:#555;font-size:.84rem;margin-bottom:14px}
+/* TOAST */
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--ink);color:#fff;padding:10px 22px;border-radius:6px;font-size:.86rem;z-index:9999;transition:transform .3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+/* LOADING */
+.loading{display:none;position:fixed;inset:0;background:rgba(255,255,255,.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:14px;font-size:.9rem;color:var(--ink)}
+.loading.show{display:flex}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:640px){.hero h1{font-size:1.9rem}.sec{padding:26px 14px}.fg{grid-template-columns:1fr}.rv-grid{grid-template-columns:1fr}header{padding:0 14px}.steps-nav{overflow-x:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand" id="brandEl">AMG Associates<small id="brandTagline">GST INVOICE TEMPLATES</small></div>
+</header>
+
+<div class="hero">
+  <h1>Professional <em>GST Invoice</em><br>Templates</h1>
+  <p>Customized with your company details — ready to print, share &amp; save.</p>
+</div>
+
+<div class="steps-nav">
+  <div class="sn active" id="sn1"><span class="sn-num">1</span>Company Details</div>
+  <div class="sn" id="sn2"><span class="sn-num">2</span>Choose Templates</div>
+  <div class="sn" id="sn3"><span class="sn-num">3</span>Review &amp; Pay</div>
+</div>
+
+<!-- STEP 1: Company -->
+<div class="sec on" id="s1">
+  <h2 class="sec-title">Your Company Details</h2>
+  <p class="sec-sub">These details will be printed on every invoice template you select.</p>
+  <div class="pbar-wrap"><div class="pbar" style="width:33%"></div></div>
+  <form id="companyForm" onsubmit="return false">
+    <div class="fg">
+      <div class="fi full"><label>Company / Firm Name *</label><input id="cName" placeholder="e.g. Raj Traders Pvt. Ltd." required></div>
+      <div class="fi full"><label>Full Address</label><textarea id="cAddr" placeholder="Shop No. 12, MG Road, Ahmedabad, Gujarat – 380001"></textarea></div>
+      <div class="fi"><label>Contact Number</label><input id="cPhone" placeholder="+91 98765 43210" type="tel"></div>
+      <div class="fi"><label>Email Address</label><input id="cEmail" placeholder="info@company.com" type="email"></div>
+      <div class="fi"><label>GSTIN</label><input id="cGST" placeholder="24XXXXX0000X1ZX" maxlength="15" oninput="this.value=this.value.toUpperCase()"></div>
+      <div class="fi"><label>PAN Number</label><input id="cPAN" placeholder="XXXXX0000X" maxlength="10" oninput="this.value=this.value.toUpperCase()"></div>
+      <div class="fi full"><label>Company Logo (PNG / JPG / PDF — optional)</label>
+        <div class="logo-zone" id="logoZone">
+          <input type="file" id="logoFile" accept=".png,.jpg,.jpeg,.pdf">
+          <img class="logo-preview" id="logoPreview" src="" alt="">
+          <div id="logoIcon" style="font-size:1.8rem;margin-bottom:6px">🖼</div>
+          <strong id="logoLabel">Drop logo here or click to browse</strong>
+          <p style="font-size:.75rem;color:#aaa;margin-top:4px">PNG, JPG, PDF · Max 5MB · If not uploaded, company name will be used</p>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row"><button class="btn btn-gold" onclick="step1Next()">Next: Choose Templates →</button></div>
+  </form>
+</div>
+
+<!-- STEP 2: Templates -->
+<div class="sec" id="s2">
+  <h2 class="sec-title">Choose Your Templates</h2>
+  <p class="sec-sub" id="step2Sub">Each template is customized with your details. Select what you need.</p>
+  <div class="pbar-wrap"><div class="pbar" style="width:66%"></div></div>
+  <div class="tpl-bar">
+    <span style="font-size:.82rem;color:#777">Click cards to select / deselect</span>
+    <button class="sa-btn" id="saBtn" onclick="selectAll()">Select All</button>
+  </div>
+  <div class="tpl-grid" id="tplGrid"></div>
+  <div class="obar">
+    <div class="obar-info">
+      <div class="oc" id="oCount">No templates selected</div>
+      <div class="ot">Total: <b id="oTotal">₹0</b></div>
+    </div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn btn-outline" onclick="goStep(1)">← Back</button>
+      <button class="btn btn-gold" id="nextBtn" onclick="goStep(3)" disabled>Review & Pay →</button>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 3: Review & Pay -->
+<div class="sec" id="s3">
+  <h2 class="sec-title">Review &amp; Pay</h2>
+  <p class="sec-sub">Confirm your order. Payment is processed securely via Razorpay.</p>
+  <div class="pbar-wrap"><div class="pbar" style="width:100%"></div></div>
+  <div class="rv-card">
+    <div class="rv-head">Company Information</div>
+    <div class="rv-grid" id="rvComp"></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-head">Selected Templates</div>
+    <div class="chip-row" id="rvTpls"></div>
+  </div>
+  <div class="total-box">
+    <div><div class="lbl">Amount Payable</div><div class="amt" id="finalAmt">₹0</div><div class="itm" id="finalItm"></div></div>
+    <div style="text-align:right"><div style="color:rgba(255,255,255,.4);font-size:.7rem;margin-bottom:3px">Secure payment via</div><div style="color:var(--gold);font-weight:700;font-size:1rem;letter-spacing:.05em">RAZORPAY</div></div>
+  </div>
+  <button class="btn btn-green" onclick="createOrder()">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Proceed to Pay &amp; Download Invoices
+  </button>
+  <div id="payConfirm" class="pay-confirm">
+    <h3>💳 Complete Payment on Razorpay</h3>
+    <p id="payNote">Once payment is complete, click below to access your customized invoices.</p>
+    <button class="btn btn-gold" onclick="confirmPayment()">✅ Payment Done — Download My Invoices</button>
+    <p style="font-size:.72rem;color:#aaa;margin-top:8px">Razorpay opened in a new tab. Complete the payment there.</p>
+  </div>
+  <div class="btn-row" style="margin-top:18px">
+    <button class="btn btn-outline" onclick="goStep(2)">← Edit Selection</button>
+    <button class="btn btn-outline" onclick="goStep(1)">Edit Company Info</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="loading" id="loading"><div class="spinner"></div><span id="loadingMsg">Please wait...</span></div>
+
+<script>
+let invoices=[], selected=new Set(), company={}, orderId=null, downloadToken=null, payLink=null;
+
+async function init(){
+  try{
+    const r=await fetch('/api/store');
+    const d=await r.json();
+    document.getElementById('brandEl').innerHTML=d.storeName+'<small>'+d.storeTagline+'</small>';
+    document.getElementById('step2Sub').textContent='Each template is ₹'+( d.invoices[0]?.price||35)+'. Select what you need.';
+    invoices=d.invoices;
+    renderTpls();
+  }catch(e){toast('Could not load store. Is the server running?')}
+}
+
+// ── LOGO ──────────────────────────────────────────────────────────────
+document.getElementById('logoFile').addEventListener('change',function(){
+  const f=this.files[0];if(!f)return;
+  if(f.size>5*1024*1024){toast('Logo file too large. Max 5MB.');return}
+  if(f.type!=='application/pdf'){
+    const r=new FileReader();r.onload=e=>{document.getElementById('logoPreview').src=e.target.result;document.getElementById('logoPreview').classList.add('show')};r.readAsDataURL(f);
+  }
+  document.getElementById('logoIcon').style.display='none';
+  document.getElementById('logoLabel').textContent='✅ '+f.name;
+});
+
+// ── STEP 1 ────────────────────────────────────────────────────────────
+function step1Next(){
+  const n=document.getElementById('cName').value.trim();
+  if(!n){toast('Please enter your company name.');document.getElementById('cName').focus();return}
+  company={companyName:n,address:document.getElementById('cAddr').value.trim(),
+    phone:document.getElementById('cPhone').value.trim(),email:document.getElementById('cEmail').value.trim(),
+    gstin:document.getElementById('cGST').value.trim(),pan:document.getElementById('cPAN').value.trim()};
+  goStep(2);
+}
+
+// ── STEP 2 ────────────────────────────────────────────────────────────
+function renderTpls(){
+  document.getElementById('tplGrid').innerHTML=invoices.map(inv=>`
+    <div class="tpl-card ${selected.has(inv.id)?'sel':''}" id="c_${inv.id}" onclick="tog('${inv.id}')">
+      <div class="tpl-thumb">${inv.icon}</div>
+      <div class="tpl-meta"><div class="tpl-name">${inv.name}</div><div class="tpl-type">${inv.type}</div><div class="tpl-price">₹${inv.price}</div></div>
+    </div>`).join('');
+  updateBar();
+  document.getElementById('saBtn').textContent=selected.size===invoices.length?'Deselect All':'Select All ('+invoices.length+')';
+}
+function tog(id){selected.has(id)?selected.delete(id):selected.add(id);document.getElementById('c_'+id).classList.toggle('sel',selected.has(id));updateBar();document.getElementById('saBtn').textContent=selected.size===invoices.length?'Deselect All':'Select All ('+invoices.length+')';}
+function selectAll(){if(selected.size===invoices.length)selected.clear();else invoices.forEach(i=>selected.add(i.id));renderTpls()}
+function updateBar(){
+  const n=selected.size,total=[...selected].reduce((s,id)=>{const i=invoices.find(v=>v.id===id);return s+(i?i.price:0)},0);
+  document.getElementById('oCount').textContent=n===0?'No templates selected':n+' template'+(n>1?'s':'')+' selected';
+  document.getElementById('oTotal').textContent='₹'+total;
+  document.getElementById('nextBtn').disabled=n===0;
+}
+
+// ── STEP 3 ────────────────────────────────────────────────────────────
+function buildReview(){
+  const cd=company;
+  document.getElementById('rvComp').innerHTML=`
+    <div class="rv-item"><label>Company Name</label><span>${cd.companyName||'—'}</span></div>
+    <div class="rv-item"><label>GSTIN</label><span>${cd.gstin||'—'}</span></div>
+    <div class="rv-item"><label>PAN</label><span>${cd.pan||'—'}</span></div>
+    <div class="rv-item"><label>Phone</label><span>${cd.phone||'—'}</span></div>
+    <div class="rv-item"><label>Email</label><span>${cd.email||'—'}</span></div>
+    <div class="rv-item"><label>Logo</label><span>${document.getElementById('logoFile').files[0]?'✅ Uploaded':'Not uploaded (name used)'}</span></div>
+    <div class="rv-item" style="grid-column:1/-1"><label>Address</label><span>${cd.address||'—'}</span></div>`;
+  document.getElementById('rvTpls').innerHTML=[...selected].map(id=>{const i=invoices.find(v=>v.id===id);return i?`<span class="chip">${i.icon} ${i.name}</span>`:''}).join('');
+  const total=[...selected].reduce((s,id)=>{const i=invoices.find(v=>v.id===id);return s+(i?i.price:0)},0);
+  document.getElementById('finalAmt').textContent='₹'+total;
+  document.getElementById('finalItm').textContent=selected.size+' template'+(selected.size>1?'s':'')+' × ₹'+(invoices.find(i=>selected.has(i.id))?.price||35)+'/each';
+}
+
+// ── CREATE ORDER & PAY ────────────────────────────────────────────────
+async function createOrder(){
+  showLoading('Creating your order...');
+  try{
+    const fd=new FormData();
+    const logoFile=document.getElementById('logoFile').files[0];
+    if(logoFile) fd.append('logo',logoFile);
+    Object.entries(company).forEach(([k,v])=>fd.append(k,v));
+    fd.append('selectedIds',JSON.stringify([...selected]));
+    const r=await fetch('/api/order/create',{method:'POST',body:fd});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||'Order creation failed');
+    orderId=d.orderId;
+    payLink=d.payLink;
+    hideLoading();
+    // Open Razorpay in new tab
+    window.open(payLink,'_blank');
+    document.getElementById('payNote').textContent='Complete payment of ₹'+d.total+' on Razorpay, then click below.';
+    document.getElementById('payConfirm').style.display='block';
+    document.getElementById('payConfirm').scrollIntoView({behavior:'smooth'});
+  }catch(e){hideLoading();toast('Error: '+e.message)}
+}
+
+async function confirmPayment(){
+  if(!orderId){toast('No order found. Please try again.');return}
+  showLoading('Verifying payment...');
+  try{
+    const r=await fetch('/api/order/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({orderId,paymentRef:'RAZORPAY_MANUAL'})});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||'Confirmation failed');
+    downloadToken=d.downloadToken;
+    hideLoading();
+    // Go to download page
+    sessionStorage.setItem('amg_token',downloadToken);
+    sessionStorage.setItem('amg_order',orderId);
+    window.location.href='/download?token='+downloadToken;
+  }catch(e){hideLoading();toast('Error: '+e.message)}
+}
+
+// ── NAVIGATION ────────────────────────────────────────────────────────
+function goStep(n){
+  [1,2,3].forEach(i=>{
+    document.getElementById('s'+i).classList.toggle('on',i===n);
+    const el=document.getElementById('sn'+i);
+    el.classList.remove('active','done');
+    if(i===n)el.classList.add('active');
+    if(i<n)el.classList.add('done');
+  });
+  if(n===3)buildReview();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showLoading(msg){document.getElementById('loadingMsg').textContent=msg||'Please wait...';document.getElementById('loading').classList.add('show')}
+function hideLoading(){document.getElementById('loading').classList.remove('show')}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
+
+init();
+</script>
+</body>
+</html>
