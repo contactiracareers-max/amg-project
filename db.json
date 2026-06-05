@@ -1,0 +1,194 @@
+{
+  "settings": {
+    "storeName": "AMG Associates",
+    "storeTagline": "Professional GST Invoice Templates",
+    "paymentLink": "https://razorpay.me/@amgassociates",
+    "defaultPrice": 35,
+    "currency": "INR",
+    "adminUser": "admin",
+    "adminPassHash": "$2a$10$VMXN5zjOV5biq5lOwmKphe3KYRblIxcKLTljyUt.b8Qsvyb8V3d0O"
+  },
+  "invoices": [
+    {
+      "id": "GST_SIMPLE_1",
+      "name": "GST Simple Invoice No.1",
+      "type": "Simple Invoice",
+      "icon": "🧾",
+      "file": "GST_SIMPLE_Invoice_Formate_No_1.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "GST_SIMPLE_2",
+      "name": "GST Simple Invoice No.2",
+      "type": "Simple Invoice",
+      "icon": "🧾",
+      "file": "GST_SIMPLE_Invoice_Formate_No_2.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "GST_SIMPLE_3",
+      "name": "GST Simple Invoice No.3",
+      "type": "Simple Invoice",
+      "icon": "🧾",
+      "file": "GST_SIMPLE_Invoice_Formate_No_3.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "GST_DELIVERY_1",
+      "name": "Delivery Challan No.1",
+      "type": "Delivery Challan",
+      "icon": "🚚",
+      "file": "GST_DELIVERY_CHALAN_FORMAT_1.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "GST_DELIVERY_2",
+      "name": "Delivery Challan No.2",
+      "type": "Delivery Challan",
+      "icon": "🚚",
+      "file": "GST_DELIVERY_CHALAN_FORMAT_2.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "GST_QUOTATION",
+      "name": "GST Quotation Format",
+      "type": "Quotation",
+      "icon": "📋",
+      "file": "GST_QUATATION_FORMATE.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "GST_PERFORMA",
+      "name": "Proforma Invoice",
+      "type": "Proforma Invoice",
+      "icon": "📄",
+      "file": "GST_PERFORMA_Invoice_Format.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "BILL_SHIP_1",
+      "name": "Bill-to Ship-to No.1",
+      "type": "Bill to Ship to",
+      "icon": "📦",
+      "file": "Invoice_Format_No__01_bill_to_ship_to.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "BILL_SHIP_2",
+      "name": "Bill-to Ship-to No.2",
+      "type": "Bill to Ship to",
+      "icon": "📦",
+      "file": "Invoice_Format_No__02_bill_to_ship_to.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "BILL_SHIP_3",
+      "name": "Bill-to Ship-to No.3",
+      "type": "Bill to Ship to",
+      "icon": "📦",
+      "file": "Invoice_Format_No__03_bill_to_ship_to.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "BILL_SHIP_4",
+      "name": "Bill-to Ship-to No.4",
+      "type": "Bill to Ship to",
+      "icon": "📦",
+      "file": "Invoice_Format_No__04_bill_to_ship_to.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "BILL_SHIP_5",
+      "name": "Bill-to Ship-to No.5",
+      "type": "Bill to Ship to",
+      "icon": "📦",
+      "file": "Invoice_Format_No__05_bill_to_ship_to.xlsx",
+      "price": 35,
+      "enabled": true
+    },
+    {
+      "id": "BILL_SHIP_6",
+      "name": "Bill-to Ship-to No.6",
+      "type": "Bill to Ship to",
+      "icon": "📦",
+      "file": "Invoice_Format_No__06_bill_to_ship_to.xlsx",
+      "price": 35,
+      "enabled": true
+    }
+  ],
+  "orders": [
+    {
+      "id": "235d6f43-2384-4627-b3d1-a02f26f3a9db",
+      "status": "pending",
+      "createdAt": "2026-06-01T17:00:38.449Z",
+      "company": {
+        "companyName": "Rain Finserv Pvt Ltd",
+        "address": "123 SG Highway, Ahmedabad 380054",
+        "phone": "+91 98765 43210",
+        "email": "info@rainfinserv.com",
+        "gstin": "24AABCR1234F1ZK",
+        "pan": "AABCR1234F"
+      },
+      "logoPath": null,
+      "selectedIds": [
+        "GST_SIMPLE_1",
+        "GST_PERFORMA"
+      ],
+      "total": 70,
+      "paymentRef": null
+    },
+    {
+      "id": "524fbf71-8c86-43f1-956b-12c1f0fd286b",
+      "status": "pending",
+      "createdAt": "2026-06-02T12:39:26.448Z",
+      "company": {
+        "companyName": "Test Co",
+        "address": "123 Street",
+        "phone": "9876543210",
+        "email": "test@test.com",
+        "gstin": "24TESTG0000T1ZT",
+        "pan": "TESTG0000T"
+      },
+      "logoPath": null,
+      "selectedIds": [
+        "GST_SIMPLE_1",
+        "GST_PERFORMA"
+      ],
+      "total": 70,
+      "paymentRef": null
+    },
+    {
+      "id": "eb3e7338-ae68-4f6f-831d-b488a2790cc6",
+      "status": "paid",
+      "createdAt": "2026-06-02T12:59:39.539Z",
+      "company": {
+        "companyName": "Rain Finserv Pvt Ltd",
+        "address": "123 SG Highway Ahmedabad 380054",
+        "phone": "9876543210",
+        "email": "info@rain.com",
+        "gstin": "24AABCR1234F1ZK",
+        "pan": "AABCR1234F"
+      },
+      "logoPath": null,
+      "selectedIds": [
+        "GST_SIMPLE_1",
+        "GST_PERFORMA",
+        "GST_DELIVERY_1"
+      ],
+      "total": 105,
+      "paymentRef": "TEST_PAY_001",
+      "paidAt": "2026-06-02T12:59:39.602Z"
+    }
+  ]
+}
