@@ -3,334 +3,336 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMG Associates – GST Invoice Templates</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>GST Invoice Templates – AMG Associates</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1a1a2e;--gold:#c9a84c;--gold2:#e8c97a;--cream:#faf7f2;--border:#e0d5c5;--green:#2d6a4f;--green2:#40916c}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
-/* HEADER */
-header{background:var(--ink);padding:0 40px;height:60px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold)}
-.brand{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);display:flex;flex-direction:column;line-height:1.1}
-.brand small{color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;font-weight:400}
-/* HERO */
-.hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 55%,#0f3460 100%);padding:52px 40px 44px;text-align:center}
-.hero h1{font-family:'Playfair Display',serif;font-size:2.6rem;color:#fff;font-weight:900;line-height:1.1;margin-bottom:8px}
-.hero h1 em{color:var(--gold);font-style:normal}
-.hero p{color:rgba(255,255,255,.55);font-size:.95rem;max-width:460px;margin:0 auto}
-/* STEPS NAV */
-.steps-nav{background:var(--ink);border-bottom:2px solid var(--gold);display:flex;justify-content:center}
-.sn{padding:12px 24px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:7px;border-bottom:3px solid transparent;transition:all .2s;cursor:default}
-.sn.active{color:var(--gold);border-bottom-color:var(--gold)}
-.sn.done{color:rgba(255,255,255,.55);border-bottom-color:#2d6a4f}
-.sn-num{width:19px;height:19px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
-.sn.active .sn-num{background:var(--gold);color:var(--ink)}
-.sn.done .sn-num{background:#2d6a4f;color:#fff}
-/* SECTIONS */
-.sec{display:none;padding:40px;max-width:900px;margin:0 auto}
+body{font-family:'Inter',sans-serif;background:#f0f4f8;color:#1e293b;min-height:100vh}
+header{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(30,58,95,.08)}
+.logo-area{display:flex;align-items:center;gap:14px}
+.logo-area img{height:46px;object-fit:contain}
+.logo-text strong{font-size:1.05rem;font-weight:700;color:#1e3a5f;display:block}
+.logo-text small{font-size:.68rem;color:#64748b;letter-spacing:.1em;text-transform:uppercase}
+.header-right{font-size:.8rem;color:#64748b}
+.header-right a{color:#1e3a5f;font-weight:600;text-decoration:none}
+.hero{background:linear-gradient(135deg,#1e3a5f 0%,#2563a8 50%,#1e7a6e 100%);padding:56px 40px 48px;text-align:center}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.72rem;font-weight:600;padding:5px 16px;border-radius:20px;margin-bottom:16px;letter-spacing:.1em;text-transform:uppercase}
+.hero h1{font-size:2.5rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:10px}
+.hero h1 span{color:#86efcc}
+.hero p{color:rgba(255,255,255,.72);font-size:.96rem;max-width:480px;margin:0 auto}
+.steps-bar{background:#fff;border-bottom:2px solid #e2e8f0}
+.steps{display:flex;justify-content:center;max-width:900px;margin:0 auto}
+.step{padding:14px 28px;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8;display:flex;align-items:center;gap:8px;border-bottom:3px solid transparent;white-space:nowrap}
+.step.active{color:#1e3a5f;border-bottom-color:#1e3a5f;font-weight:600}
+.step.done{color:#059669;border-bottom-color:#059669}
+.step-n{width:21px;height:21px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:.67rem;font-weight:700;flex-shrink:0}
+.step.active .step-n{background:#1e3a5f;color:#fff}
+.step.done .step-n{background:#059669;color:#fff}
+.sec{display:none;padding:40px;max-width:860px;margin:0 auto}
 .sec.on{display:block}
-.sec-title{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:4px}
-.sec-sub{color:#888;font-size:.86rem;margin-bottom:26px}
-.pbar-wrap{height:3px;background:#e8e3dc;border-radius:2px;margin-bottom:26px}
-.pbar{height:100%;background:var(--gold);border-radius:2px;transition:width .4s}
-/* FORM */
+.sec-title{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.sec-sub{color:#64748b;font-size:.87rem;margin-bottom:24px}
+.pbar{height:4px;background:#e2e8f0;border-radius:4px;margin-bottom:26px}
+.pbar-fill{height:100%;background:linear-gradient(90deg,#1e3a5f,#1e7a6e);border-radius:4px;transition:width .4s}
 .fg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
 .fi{display:flex;flex-direction:column}
 .fi.full{grid-column:1/-1}
-.fi label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:5px;font-weight:500}
-.fi input,.fi textarea{border:1.5px solid var(--border);border-radius:6px;padding:10px 13px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s}
-.fi input:focus,.fi textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.fi label{font-size:.71rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#475569;margin-bottom:5px}
+.fi label .opt{background:#dbeafe;color:#1d4ed8;font-size:.62rem;font-weight:600;padding:1px 7px;border-radius:10px;margin-left:6px;text-transform:uppercase}
+.fi input,.fi textarea{background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;padding:10px 14px;font-family:'Inter',sans-serif;font-size:.9rem;color:#1e293b;transition:border-color .2s,box-shadow .2s}
+.fi input:focus,.fi textarea:focus{outline:none;border-color:#1e3a5f;box-shadow:0 0 0 3px rgba(30,58,95,.1)}
 .fi textarea{resize:vertical;min-height:68px}
-.logo-zone{border:2px dashed var(--border);border-radius:8px;padding:22px;text-align:center;cursor:pointer;position:relative;transition:all .2s;background:#fff}
-.logo-zone:hover{border-color:var(--gold)}
-.logo-zone input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.logo-preview{display:none;max-height:56px;margin:0 auto 8px;border-radius:4px}
-.logo-preview.show{display:block}
-/* TEMPLATE GRID */
-.tpl-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
-.tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px;margin-bottom:24px}
-.tpl-card{background:#fff;border:2px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s;position:relative;user-select:none}
-.tpl-card:hover{border-color:var(--gold);box-shadow:0 6px 28px rgba(26,26,46,.12);transform:translateY(-2px)}
-.tpl-card.sel{border-color:var(--gold);background:#fffdf5}
-.tpl-card.sel::after{content:'✓';position:absolute;top:8px;right:8px;width:21px;height:21px;background:var(--gold);color:#fff;border-radius:50%;font-size:.68rem;font-weight:800;line-height:21px;text-align:center}
-.tpl-thumb{height:108px;background:linear-gradient(135deg,#f0ede8,#e8e3dc);display:flex;align-items:center;justify-content:center;font-size:2.2rem;border-bottom:1px solid var(--border)}
-.tpl-card.sel .tpl-thumb{background:linear-gradient(135deg,#fdf9ee,#f5eccc)}
-.tpl-meta{padding:10px 12px}
-.tpl-name{font-size:.78rem;font-weight:600;margin-bottom:2px}
-.tpl-type{font-size:.68rem;color:#999;text-transform:uppercase;letter-spacing:.07em}
-.tpl-price{font-size:.76rem;color:var(--gold);font-weight:700;margin-top:4px}
-/* ORDER BAR */
-.obar{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;position:sticky;bottom:14px;box-shadow:0 8px 32px rgba(26,26,46,.14)}
-.obar-info .oc{font-size:.76rem;color:#888}
-.obar-info .ot{font-size:1.3rem;font-weight:700}
-.obar-info .ot b{color:var(--gold)}
-/* REVIEW */
-.rv-card{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:22px 26px;margin-bottom:14px}
-.rv-head{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:600;margin-bottom:11px;padding-bottom:7px;border-bottom:1px solid var(--border)}
+.logo-drop{border:2px dashed #cbd5e1;border-radius:10px;padding:22px;text-align:center;cursor:pointer;position:relative;transition:all .2s;background:#f8fafc}
+.logo-drop:hover{border-color:#1e3a5f;background:#eff6ff}
+.logo-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.logo-drop-prev{display:none;max-height:52px;margin:0 auto 8px}
+.logo-drop-prev.show{display:block}
+.combo-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.07);margin-bottom:24px}
+.combo-top{background:linear-gradient(135deg,#1e3a5f,#2563a8);padding:26px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.combo-top h3{font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:4px}
+.combo-top p{color:rgba(255,255,255,.68);font-size:.84rem}
+.price-box .was{color:rgba(255,255,255,.45);font-size:.76rem;text-decoration:line-through}
+.price-box .now{font-size:2.4rem;font-weight:800;color:#86efcc;line-height:1}
+.price-box .once{color:rgba(255,255,255,.55);font-size:.72rem;margin-top:2px}
+.combo-mid{padding:24px 30px}
+.combo-mid h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#64748b;margin-bottom:14px;border-bottom:1px solid #f1f5f9;padding-bottom:8px}
+.inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.inv-row{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0}
+.inv-row .ico{font-size:1rem;flex-shrink:0}
+.inv-row .nm{font-size:.82rem;font-weight:600;color:#334155;display:block}
+.inv-row .tp{font-size:.67rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em}
+.combo-bot{background:#f8fafc;border-top:1px solid #e2e8f0;padding:16px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.combo-bot p{font-size:.81rem;color:#64748b}
+.rv-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;padding:20px 24px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.rv-head{font-size:.69rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#1e3a5f;margin-bottom:12px;padding-bottom:7px;border-bottom:2px solid #f0f4f8}
 .rv-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.rv-item label{font-size:.7rem;color:#aaa;display:block}
-.rv-item span{font-size:.88rem;word-break:break-word}
-.chip-row{display:flex;flex-wrap:wrap;gap:6px}
-.chip{background:#f5f0e8;border:1px solid var(--border);padding:3px 10px;border-radius:20px;font-size:.74rem}
-.total-box{background:linear-gradient(135deg,var(--ink),#16213e);border-radius:10px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.total-box .lbl{color:rgba(255,255,255,.5);font-size:.8rem}
-.total-box .amt{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold)}
-.total-box .itm{color:rgba(255,255,255,.4);font-size:.74rem;margin-top:1px}
-/* BUTTONS */
-.btn{border:none;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;font-size:.88rem;padding:11px 26px}
-.btn-gold{background:var(--gold);color:var(--ink)}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,168,76,.3)}
-.btn-gold:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
-.btn-outline:hover{border-color:var(--ink)}
-.btn-green{background:var(--green);color:#fff;width:100%;padding:15px;font-size:.95rem;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:9px}
-.btn-green:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 8px 22px rgba(45,106,79,.32)}
-.sa-btn{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:7px 16px;border-radius:4px;cursor:pointer;font-size:.78rem;font-family:'DM Sans',sans-serif;transition:all .2s}
-.sa-btn:hover{background:var(--gold);color:var(--ink)}
-.btn-row{display:flex;gap:9px;justify-content:flex-end;margin-top:24px;flex-wrap:wrap}
-/* PAY CONFIRM */
-.pay-confirm{display:none;margin-top:20px;background:#f0fdf4;border:2px solid #40916c;border-radius:10px;padding:22px;text-align:center}
-.pay-confirm h3{font-weight:700;margin-bottom:6px}
-.pay-confirm p{color:#555;font-size:.84rem;margin-bottom:14px}
-/* TOAST */
-.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--ink);color:#fff;padding:10px 22px;border-radius:6px;font-size:.86rem;z-index:9999;transition:transform .3s;pointer-events:none}
+.rv-it label{font-size:.7rem;color:#94a3b8;display:block;margin-bottom:1px;font-weight:500}
+.rv-it span{font-size:.88rem;color:#1e293b;font-weight:500;word-break:break-word}
+.total-strip{background:linear-gradient(135deg,#1e3a5f,#1e7a6e);border-radius:12px;padding:20px 26px;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.total-strip .lbl{color:rgba(255,255,255,.6);font-size:.78rem;margin-bottom:3px}
+.total-strip .amt{font-size:2.1rem;font-weight:800;color:#86efcc}
+.total-strip .note{color:rgba(255,255,255,.4);font-size:.72rem;margin-top:2px}
+.btn{border:none;border-radius:8px;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;transition:all .2s;font-size:.88rem;padding:11px 24px}
+.btn-primary{background:#1e3a5f;color:#fff}
+.btn-primary:hover{background:#2563a8;transform:translateY(-1px);box-shadow:0 4px 14px rgba(30,58,95,.3)}
+.btn-outline{background:#fff;color:#475569;border:1.5px solid #e2e8f0}
+.btn-outline:hover{border-color:#1e3a5f;color:#1e3a5f}
+.btn-pay{background:linear-gradient(135deg,#059669,#10b981);color:#fff;width:100%;padding:16px;font-size:1rem;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-pay:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(5,150,105,.3)}
+.btn-row{display:flex;gap:9px;justify-content:flex-end;margin-top:22px;flex-wrap:wrap}
+.pay-confirm-box{display:none;margin-top:20px;background:#ecfdf5;border:2px solid #6ee7b7;border-radius:12px;padding:24px;text-align:center}
+.pay-confirm-box h3{font-weight:700;margin-bottom:6px;color:#064e3b;font-size:1.05rem}
+.pay-confirm-box p{color:#065f46;font-size:.84rem;margin-bottom:16px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:#1e293b;color:#fff;padding:11px 22px;border-radius:8px;font-size:.86rem;z-index:9999;transition:transform .3s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 .toast.show{transform:translateX(-50%) translateY(0)}
-/* LOADING */
-.loading{display:none;position:fixed;inset:0;background:rgba(255,255,255,.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:14px;font-size:.9rem;color:var(--ink)}
-.loading.show{display:flex}
-.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 0.7s linear infinite}
+.overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.9);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:14px}
+.overlay.show{display:flex}
+.spinner{width:36px;height:36px;border:3px solid #e2e8f0;border-top-color:#1e3a5f;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:640px){.hero h1{font-size:1.9rem}.sec{padding:26px 14px}.fg{grid-template-columns:1fr}.rv-grid{grid-template-columns:1fr}header{padding:0 14px}.steps-nav{overflow-x:auto}}
+@media(max-width:640px){
+  header{padding:0 16px;height:60px}
+  .hero{padding:36px 16px 30px}.hero h1{font-size:1.85rem}
+  .sec{padding:24px 14px}.fg{grid-template-columns:1fr}
+  .inv-grid{grid-template-columns:1fr}.rv-grid{grid-template-columns:1fr}
+  .combo-top{flex-direction:column;text-align:center}.steps{overflow-x:auto}
+}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="brand" id="brandEl">AMG Associates<small id="brandTagline">GST INVOICE TEMPLATES</small></div>
+  <div class="logo-area">
+    <img src="data:image/png;base64,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" alt="AMG Associates">
+    <div class="logo-text">
+      <strong>AMG Associates</strong>
+      <small>Accounting &amp; Tax Consultants</small>
+    </div>
+  </div>
+  <div class="header-right">Call us: <a href="tel:+918320184186">+91 83201 84186</a></div>
 </header>
 
 <div class="hero">
-  <h1>Professional <em>GST Invoice</em><br>Templates</h1>
-  <p>Customized with your company details — ready to print, share &amp; save.</p>
+  <div class="hero-badge">✦ GST Compliant · Print Ready · Instant Download</div>
+  <h1>All 13 <span>GST Invoice</span><br>Templates in One Pack</h1>
+  <p>Enter your company details once. Get all 13 customized invoice formats downloaded instantly after payment.</p>
 </div>
 
-<div class="steps-nav">
-  <div class="sn active" id="sn1"><span class="sn-num">1</span>Company Details</div>
-  <div class="sn" id="sn2"><span class="sn-num">2</span>Choose Templates</div>
-  <div class="sn" id="sn3"><span class="sn-num">3</span>Review &amp; Pay</div>
+<div class="steps-bar">
+  <div class="steps">
+    <div class="step active" id="sn1"><span class="step-n">1</span>Company Details</div>
+    <div class="step" id="sn2"><span class="step-n">2</span>Combo Pack</div>
+    <div class="step" id="sn3"><span class="step-n">3</span>Pay &amp; Download</div>
+  </div>
 </div>
 
-<!-- STEP 1: Company -->
+<!-- STEP 1 -->
 <div class="sec on" id="s1">
   <h2 class="sec-title">Your Company Details</h2>
-  <p class="sec-sub">These details will be printed on every invoice template you select.</p>
-  <div class="pbar-wrap"><div class="pbar" style="width:33%"></div></div>
-  <form id="companyForm" onsubmit="return false">
-    <div class="fg">
-      <div class="fi full"><label>Company / Firm Name *</label><input id="cName" placeholder="e.g. Raj Traders Pvt. Ltd." required></div>
-      <div class="fi full"><label>Full Address</label><textarea id="cAddr" placeholder="Shop No. 12, MG Road, Ahmedabad, Gujarat – 380001"></textarea></div>
-      <div class="fi"><label>Contact Number</label><input id="cPhone" placeholder="+91 98765 43210" type="tel"></div>
-      <div class="fi"><label>Email Address</label><input id="cEmail" placeholder="info@company.com" type="email"></div>
-      <div class="fi"><label>GSTIN</label><input id="cGST" placeholder="24XXXXX0000X1ZX" maxlength="15" oninput="this.value=this.value.toUpperCase()"></div>
-      <div class="fi"><label>PAN Number</label><input id="cPAN" placeholder="XXXXX0000X" maxlength="10" oninput="this.value=this.value.toUpperCase()"></div>
-      <div class="fi full"><label>Company Logo (PNG / JPG / PDF — optional)</label>
-        <div class="logo-zone" id="logoZone">
-          <input type="file" id="logoFile" accept=".png,.jpg,.jpeg,.pdf">
-          <img class="logo-preview" id="logoPreview" src="" alt="">
-          <div id="logoIcon" style="font-size:1.8rem;margin-bottom:6px">🖼</div>
-          <strong id="logoLabel">Drop logo here or click to browse</strong>
-          <p style="font-size:.75rem;color:#aaa;margin-top:4px">PNG, JPG, PDF · Max 5MB · If not uploaded, company name will be used</p>
-        </div>
+  <p class="sec-sub">These details will be printed on all 13 invoice templates you download.</p>
+  <div class="pbar"><div class="pbar-fill" style="width:33%"></div></div>
+  <div class="fg">
+    <div class="fi full"><label>Company / Firm Name *</label><input id="cName" placeholder="e.g. Raj Traders Pvt. Ltd."></div>
+    <div class="fi full"><label>Full Address</label><textarea id="cAddr" placeholder="Shop No. 12, MG Road, Ahmedabad, Gujarat – 380001" rows="2"></textarea></div>
+    <div class="fi"><label>Contact Number</label><input id="cPhone" placeholder="+91 98765 43210" type="tel"></div>
+    <div class="fi"><label>Email Address</label><input id="cEmail" placeholder="info@company.com" type="email"></div>
+    <div class="fi"><label>GSTIN</label><input id="cGST" placeholder="24XXXXX0000X1ZX" maxlength="15" oninput="this.value=this.value.toUpperCase()"></div>
+    <div class="fi"><label>PAN Number</label><input id="cPAN" placeholder="XXXXX0000X" maxlength="10" oninput="this.value=this.value.toUpperCase()"></div>
+    <div class="fi full">
+      <label>Company Logo <span class="opt">Optional</span></label>
+      <div class="logo-drop">
+        <input type="file" id="logoFile" accept=".png,.jpg,.jpeg,.pdf">
+        <img class="logo-drop-prev" id="logoPrev" src="" alt="">
+        <div id="logoIco" style="font-size:1.8rem;margin-bottom:6px">🖼</div>
+        <strong id="logoLbl" style="font-size:.86rem;color:#334155;display:block;margin-bottom:3px">Drop logo here or click to browse</strong>
+        <p style="font-size:.74rem;color:#94a3b8">PNG, JPG, PDF · Max 5MB · If not provided, company name will appear</p>
       </div>
     </div>
-    <div class="btn-row"><button class="btn btn-gold" onclick="step1Next()">Next: Choose Templates →</button></div>
-  </form>
+  </div>
+  <div class="btn-row"><button class="btn btn-primary" onclick="step1()">Next: View Combo Pack →</button></div>
 </div>
 
-<!-- STEP 2: Templates -->
+<!-- STEP 2 -->
 <div class="sec" id="s2">
-  <h2 class="sec-title">Choose Your Templates</h2>
-  <p class="sec-sub" id="step2Sub">Each template is customized with your details. Select what you need.</p>
-  <div class="pbar-wrap"><div class="pbar" style="width:66%"></div></div>
-  <div class="tpl-bar">
-    <span style="font-size:.82rem;color:#777">Click cards to select / deselect</span>
-    <button class="sa-btn" id="saBtn" onclick="selectAll()">Select All</button>
+  <h2 class="sec-title">Complete GST Invoice Combo Pack</h2>
+  <p class="sec-sub">All 13 formats customized with your details — one payment, instant download.</p>
+  <div class="pbar"><div class="pbar-fill" style="width:66%"></div></div>
+  <div class="combo-card">
+    <div class="combo-top">
+      <div><h3>🎯 Complete GST Invoice Bundle</h3><p>All 13 formats · Customized · Instant ZIP download</p></div>
+      <div class="price-box">
+        <div class="was">₹455 (₹35 × 13)</div>
+        <div class="now">₹<span id="priceDisplay">299</span></div>
+        <div class="once">One-time · No subscription</div>
+      </div>
+    </div>
+    <div class="combo-mid">
+      <h4>✅ All 13 Formats included in this pack</h4>
+      <div class="inv-grid" id="invGrid"></div>
+    </div>
+    <div class="combo-bot">
+      <p>All files in <strong>Excel (.xlsx)</strong> format · Open in Excel, Google Sheets, or LibreOffice</p>
+      <span style="font-weight:700;color:#1e3a5f;font-size:.9rem">🔒 RAZORPAY</span>
+    </div>
   </div>
-  <div class="tpl-grid" id="tplGrid"></div>
-  <div class="obar">
-    <div class="obar-info">
-      <div class="oc" id="oCount">No templates selected</div>
-      <div class="ot">Total: <b id="oTotal">₹0</b></div>
-    </div>
-    <div style="display:flex;gap:9px;flex-wrap:wrap">
-      <button class="btn btn-outline" onclick="goStep(1)">← Back</button>
-      <button class="btn btn-gold" id="nextBtn" onclick="goStep(3)" disabled>Review & Pay →</button>
-    </div>
+  <div class="btn-row">
+    <button class="btn btn-outline" onclick="goStep(1)">← Back</button>
+    <button class="btn btn-primary" onclick="goStep(3)">Confirm &amp; Pay →</button>
   </div>
 </div>
 
-<!-- STEP 3: Review & Pay -->
+<!-- STEP 3 -->
 <div class="sec" id="s3">
-  <h2 class="sec-title">Review &amp; Pay</h2>
-  <p class="sec-sub">Confirm your order. Payment is processed securely via Razorpay.</p>
-  <div class="pbar-wrap"><div class="pbar" style="width:100%"></div></div>
+  <h2 class="sec-title">Confirm &amp; Pay</h2>
+  <p class="sec-sub">Review your details before making the secure payment.</p>
+  <div class="pbar"><div class="pbar-fill" style="width:100%"></div></div>
   <div class="rv-card">
     <div class="rv-head">Company Information</div>
     <div class="rv-grid" id="rvComp"></div>
   </div>
   <div class="rv-card">
-    <div class="rv-head">Selected Templates</div>
-    <div class="chip-row" id="rvTpls"></div>
+    <div class="rv-head">You are purchasing 13 GST Invoice Formats</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px" id="rvFormats"></div>
   </div>
-  <div class="total-box">
-    <div><div class="lbl">Amount Payable</div><div class="amt" id="finalAmt">₹0</div><div class="itm" id="finalItm"></div></div>
-    <div style="text-align:right"><div style="color:rgba(255,255,255,.4);font-size:.7rem;margin-bottom:3px">Secure payment via</div><div style="color:var(--gold);font-weight:700;font-size:1rem;letter-spacing:.05em">RAZORPAY</div></div>
+  <div class="total-strip">
+    <div>
+      <div class="lbl">Total Amount (One-time payment)</div>
+      <div class="amt">₹<span id="finalAmt">299</span></div>
+      <div class="note">13 invoice formats · Customized &amp; ready to use</div>
+    </div>
+    <div style="text-align:right">
+      <div style="color:rgba(255,255,255,.45);font-size:.7rem;margin-bottom:4px">Secured by</div>
+      <div style="color:#86efcc;font-weight:700;font-size:1.05rem">RAZORPAY</div>
+      <div style="color:rgba(255,255,255,.35);font-size:.68rem">256-bit SSL</div>
+    </div>
   </div>
-  <button class="btn btn-green" onclick="createOrder()">
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    Proceed to Pay &amp; Download Invoices
+  <button class="btn btn-pay" onclick="createOrder()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Pay ₹<span id="payBtn">299</span> &amp; Download All 13 Invoices
   </button>
-  <div id="payConfirm" class="pay-confirm">
-    <h3>💳 Complete Payment on Razorpay</h3>
-    <p id="payNote">Once payment is complete, click below to access your customized invoices.</p>
-    <button class="btn btn-gold" onclick="confirmPayment()">✅ Payment Done — Download My Invoices</button>
-    <p style="font-size:.72rem;color:#aaa;margin-top:8px">Razorpay opened in a new tab. Complete the payment there.</p>
+  <p style="text-align:center;font-size:.74rem;color:#94a3b8;margin-top:10px">Razorpay opens in a new tab. Amount is pre-filled (₹<span id="payNote2">299</span>) and cannot be changed.</p>
+
+  <div class="pay-confirm-box" id="payBox">
+    <h3>✅ Complete Payment on Razorpay</h3>
+    <p id="payNote">Once you complete the payment of ₹299 on Razorpay, click the button below to download.</p>
+    <button class="btn btn-primary" style="padding:13px 30px" onclick="confirmPay()">I've Paid — Download My 13 Invoices</button>
+    <p style="font-size:.73rem;color:#6b7280;margin-top:10px">Razorpay tab opened above. Complete payment there, then return here.</p>
   </div>
-  <div class="btn-row" style="margin-top:18px">
-    <button class="btn btn-outline" onclick="goStep(2)">← Edit Selection</button>
-    <button class="btn btn-outline" onclick="goStep(1)">Edit Company Info</button>
+
+  <div class="btn-row" style="margin-top:16px">
+    <button class="btn btn-outline" onclick="goStep(2)">← Back</button>
+    <button class="btn btn-outline" onclick="goStep(1)">Edit Company Details</button>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
-<div class="loading" id="loading"><div class="spinner"></div><span id="loadingMsg">Please wait...</span></div>
+<div class="overlay" id="overlay"><div class="spinner"></div><span id="overlayMsg">Please wait...</span></div>
 
 <script>
-let invoices=[], selected=new Set(), company={}, orderId=null, downloadToken=null, payLink=null;
+let invoices=[], company={}, orderId=null, comboPrice=299;
 
 async function init(){
   try{
-    const r=await fetch('/api/store');
-    const d=await r.json();
-    document.getElementById('brandEl').innerHTML=d.storeName+'<small>'+d.storeTagline+'</small>';
-    document.getElementById('step2Sub').textContent='Each template is ₹'+( d.invoices[0]?.price||35)+'. Select what you need.';
-    invoices=d.invoices;
-    renderTpls();
-  }catch(e){toast('Could not load store. Is the server running?')}
+    const r = await fetch('/api/store');
+    const d = await r.json();
+    invoices   = d.invoices;
+    comboPrice = d.comboPrice || 299;
+    ['priceDisplay','finalAmt','payBtn','payNote2'].forEach(id=>{
+      document.getElementById(id).textContent = comboPrice;
+    });
+    renderInvGrid();
+  }catch(e){ toast('Could not connect to server. Please refresh.'); }
 }
 
-// ── LOGO ──────────────────────────────────────────────────────────────
+function renderInvGrid(){
+  const icons={'Simple Invoice':'🧾','Delivery Challan':'🚚','Quotation':'📋','Proforma Invoice':'📄','Bill to Ship to':'📦'};
+  document.getElementById('invGrid').innerHTML = invoices.map(i=>`
+    <div class="inv-row">
+      <span class="ico">${icons[i.type]||'📄'}</span>
+      <div><span class="nm">${i.name}</span><span class="tp">${i.type}</span></div>
+    </div>`).join('');
+}
+
 document.getElementById('logoFile').addEventListener('change',function(){
-  const f=this.files[0];if(!f)return;
-  if(f.size>5*1024*1024){toast('Logo file too large. Max 5MB.');return}
+  const f=this.files[0]; if(!f)return;
+  if(f.size>5*1024*1024){toast('Logo too large. Max 5MB.');return;}
   if(f.type!=='application/pdf'){
-    const r=new FileReader();r.onload=e=>{document.getElementById('logoPreview').src=e.target.result;document.getElementById('logoPreview').classList.add('show')};r.readAsDataURL(f);
+    const r=new FileReader(); r.onload=e=>{document.getElementById('logoPrev').src=e.target.result;document.getElementById('logoPrev').classList.add('show');};r.readAsDataURL(f);
   }
-  document.getElementById('logoIcon').style.display='none';
-  document.getElementById('logoLabel').textContent='✅ '+f.name;
+  document.getElementById('logoIco').style.display='none';
+  document.getElementById('logoLbl').textContent='✅ '+f.name;
 });
 
-// ── STEP 1 ────────────────────────────────────────────────────────────
-function step1Next(){
+function step1(){
   const n=document.getElementById('cName').value.trim();
-  if(!n){toast('Please enter your company name.');document.getElementById('cName').focus();return}
-  company={companyName:n,address:document.getElementById('cAddr').value.trim(),
-    phone:document.getElementById('cPhone').value.trim(),email:document.getElementById('cEmail').value.trim(),
-    gstin:document.getElementById('cGST').value.trim(),pan:document.getElementById('cPAN').value.trim()};
+  if(!n){toast('Please enter your company name.');document.getElementById('cName').focus();return;}
+  company={
+    companyName:n, address:document.getElementById('cAddr').value.trim(),
+    phone:document.getElementById('cPhone').value.trim(), email:document.getElementById('cEmail').value.trim(),
+    gstin:document.getElementById('cGST').value.trim(), pan:document.getElementById('cPAN').value.trim()
+  };
   goStep(2);
 }
 
-// ── STEP 2 ────────────────────────────────────────────────────────────
-function renderTpls(){
-  document.getElementById('tplGrid').innerHTML=invoices.map(inv=>`
-    <div class="tpl-card ${selected.has(inv.id)?'sel':''}" id="c_${inv.id}" onclick="tog('${inv.id}')">
-      <div class="tpl-thumb">${inv.icon}</div>
-      <div class="tpl-meta"><div class="tpl-name">${inv.name}</div><div class="tpl-type">${inv.type}</div><div class="tpl-price">₹${inv.price}</div></div>
-    </div>`).join('');
-  updateBar();
-  document.getElementById('saBtn').textContent=selected.size===invoices.length?'Deselect All':'Select All ('+invoices.length+')';
-}
-function tog(id){selected.has(id)?selected.delete(id):selected.add(id);document.getElementById('c_'+id).classList.toggle('sel',selected.has(id));updateBar();document.getElementById('saBtn').textContent=selected.size===invoices.length?'Deselect All':'Select All ('+invoices.length+')';}
-function selectAll(){if(selected.size===invoices.length)selected.clear();else invoices.forEach(i=>selected.add(i.id));renderTpls()}
-function updateBar(){
-  const n=selected.size,total=[...selected].reduce((s,id)=>{const i=invoices.find(v=>v.id===id);return s+(i?i.price:0)},0);
-  document.getElementById('oCount').textContent=n===0?'No templates selected':n+' template'+(n>1?'s':'')+' selected';
-  document.getElementById('oTotal').textContent='₹'+total;
-  document.getElementById('nextBtn').disabled=n===0;
-}
-
-// ── STEP 3 ────────────────────────────────────────────────────────────
 function buildReview(){
-  const cd=company;
   document.getElementById('rvComp').innerHTML=`
-    <div class="rv-item"><label>Company Name</label><span>${cd.companyName||'—'}</span></div>
-    <div class="rv-item"><label>GSTIN</label><span>${cd.gstin||'—'}</span></div>
-    <div class="rv-item"><label>PAN</label><span>${cd.pan||'—'}</span></div>
-    <div class="rv-item"><label>Phone</label><span>${cd.phone||'—'}</span></div>
-    <div class="rv-item"><label>Email</label><span>${cd.email||'—'}</span></div>
-    <div class="rv-item"><label>Logo</label><span>${document.getElementById('logoFile').files[0]?'✅ Uploaded':'Not uploaded (name used)'}</span></div>
-    <div class="rv-item" style="grid-column:1/-1"><label>Address</label><span>${cd.address||'—'}</span></div>`;
-  document.getElementById('rvTpls').innerHTML=[...selected].map(id=>{const i=invoices.find(v=>v.id===id);return i?`<span class="chip">${i.icon} ${i.name}</span>`:''}).join('');
-  const total=[...selected].reduce((s,id)=>{const i=invoices.find(v=>v.id===id);return s+(i?i.price:0)},0);
-  document.getElementById('finalAmt').textContent='₹'+total;
-  document.getElementById('finalItm').textContent=selected.size+' template'+(selected.size>1?'s':'')+' × ₹'+(invoices.find(i=>selected.has(i.id))?.price||35)+'/each';
+    <div class="rv-it"><label>Company Name</label><span>${company.companyName||'—'}</span></div>
+    <div class="rv-it"><label>GSTIN</label><span>${company.gstin||'—'}</span></div>
+    <div class="rv-it"><label>PAN</label><span>${company.pan||'—'}</span></div>
+    <div class="rv-it"><label>Phone</label><span>${company.phone||'—'}</span></div>
+    <div class="rv-it"><label>Email</label><span>${company.email||'—'}</span></div>
+    <div class="rv-it"><label>Logo</label><span>${document.getElementById('logoFile').files[0]?'✅ Uploaded':'Not uploaded'}</span></div>
+    <div class="rv-it" style="grid-column:1/-1"><label>Address</label><span>${company.address||'—'}</span></div>`;
+  const icons={'Simple Invoice':'🧾','Delivery Challan':'🚚','Quotation':'📋','Proforma Invoice':'📄','Bill to Ship to':'📦'};
+  document.getElementById('rvFormats').innerHTML=invoices.map(i=>
+    `<span style="background:#f0f4f8;border:1px solid #e2e8f0;padding:3px 10px;border-radius:20px;font-size:.74rem;color:#334155">${icons[i.type]||'📄'} ${i.name}</span>`).join('');
 }
 
-// ── CREATE ORDER & PAY ────────────────────────────────────────────────
-async function createOrder(){
-  showLoading('Creating your order...');
-  try{
-    const fd=new FormData();
-    const logoFile=document.getElementById('logoFile').files[0];
-    if(logoFile) fd.append('logo',logoFile);
-    Object.entries(company).forEach(([k,v])=>fd.append(k,v));
-    fd.append('selectedIds',JSON.stringify([...selected]));
-    const r=await fetch('/api/order/create',{method:'POST',body:fd});
-    const d=await r.json();
-    if(!r.ok) throw new Error(d.error||'Order creation failed');
-    orderId=d.orderId;
-    payLink=d.payLink;
-    hideLoading();
-    // Open Razorpay in new tab
-    window.open(payLink,'_blank');
-    document.getElementById('payNote').textContent='Complete payment of ₹'+d.total+' on Razorpay, then click below.';
-    document.getElementById('payConfirm').style.display='block';
-    document.getElementById('payConfirm').scrollIntoView({behavior:'smooth'});
-  }catch(e){hideLoading();toast('Error: '+e.message)}
-}
-
-async function confirmPayment(){
-  if(!orderId){toast('No order found. Please try again.');return}
-  showLoading('Verifying payment...');
-  try{
-    const r=await fetch('/api/order/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({orderId,paymentRef:'RAZORPAY_MANUAL'})});
-    const d=await r.json();
-    if(!r.ok) throw new Error(d.error||'Confirmation failed');
-    downloadToken=d.downloadToken;
-    hideLoading();
-    // Go to download page
-    sessionStorage.setItem('amg_token',downloadToken);
-    sessionStorage.setItem('amg_order',orderId);
-    window.location.href='/download?token='+downloadToken;
-  }catch(e){hideLoading();toast('Error: '+e.message)}
-}
-
-// ── NAVIGATION ────────────────────────────────────────────────────────
 function goStep(n){
   [1,2,3].forEach(i=>{
     document.getElementById('s'+i).classList.toggle('on',i===n);
     const el=document.getElementById('sn'+i);
     el.classList.remove('active','done');
-    if(i===n)el.classList.add('active');
-    if(i<n)el.classList.add('done');
+    if(i===n) el.classList.add('active');
+    if(i<n)   el.classList.add('done');
   });
-  if(n===3)buildReview();
+  if(n===3) buildReview();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function showLoading(msg){document.getElementById('loadingMsg').textContent=msg||'Please wait...';document.getElementById('loading').classList.add('show')}
-function hideLoading(){document.getElementById('loading').classList.remove('show')}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
+async function createOrder(){
+  showOv('Creating your order...');
+  try{
+    const fd=new FormData();
+    const lf=document.getElementById('logoFile').files[0];
+    if(lf) fd.append('logo',lf);
+    Object.entries(company).forEach(([k,v])=>fd.append(k,v));
+    const r=await fetch('/api/order/create',{method:'POST',body:fd});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||'Order creation failed');
+    orderId=d.orderId;
+    hideOv();
+    window.open(d.payLink,'_blank');
+    document.getElementById('payNote').textContent=`Once you complete payment of ₹${d.total} on Razorpay, click the button below.`;
+    document.getElementById('payBox').style.display='block';
+    document.getElementById('payBox').scrollIntoView({behavior:'smooth'});
+  }catch(e){hideOv();toast('Error: '+e.message);}
+}
+
+async function confirmPay(){
+  if(!orderId){toast('No order found. Please try again.');return;}
+  showOv('Confirming payment...');
+  try{
+    const r=await fetch('/api/order/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({orderId})});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||'Confirmation failed');
+    hideOv();
+    sessionStorage.setItem('amg_token',d.downloadToken);
+    window.location.href='/download?token='+d.downloadToken;
+  }catch(e){hideOv();toast('Error: '+e.message);}
+}
+
+function showOv(m){document.getElementById('overlayMsg').textContent=m;document.getElementById('overlay').classList.add('show');}
+function hideOv(){document.getElementById('overlay').classList.remove('show');}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
 
 init();
 </script>

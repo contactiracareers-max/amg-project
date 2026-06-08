@@ -3,207 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download Your Invoices – AMG Associates</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Download Invoices – AMG Associates</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1a1a2e;--gold:#c9a84c;--gold2:#e8c97a;--cream:#faf7f2;--border:#e0d5c5;--green:#2d6a4f;--green2:#40916c}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
-header{background:var(--ink);padding:0 40px;height:60px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold)}
-.brand{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold)}
-.brand small{color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.15em;display:block;font-weight:400}
-.container{max-width:680px;margin:0 auto;padding:52px 24px;flex:1}
-/* SUCCESS BANNER */
-.success-banner{text-align:center;margin-bottom:40px}
-.check-circle{width:72px;height:72px;background:linear-gradient(135deg,var(--green),var(--green2));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 8px 24px rgba(45,106,79,.3)}
-.check-circle svg{width:36px;height:36px;stroke:#fff;stroke-width:2.5}
-.success-banner h1{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:8px}
-.success-banner p{color:#888;font-size:.92rem;max-width:380px;margin:0 auto}
-/* ORDER INFO */
-.order-info{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.order-info .oi-item label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#aaa;display:block;margin-bottom:2px}
-.order-info .oi-item span{font-size:.9rem;font-weight:600}
-/* DOWNLOAD SECTION */
-.dl-section-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:600;margin-bottom:14px}
-.dl-all-btn{width:100%;background:var(--ink);color:#fff;border:none;border-radius:8px;padding:15px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:14px}
-.dl-all-btn:hover{background:#2a2a4a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,26,46,.2)}
-.dl-list{display:flex;flex-direction:column;gap:9px;margin-bottom:28px}
-.dl-item{background:#fff;border:1.5px solid var(--border);border-radius:8px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:border-color .2s}
-.dl-item:hover{border-color:var(--gold)}
-.dl-item .name{font-size:.88rem;font-weight:500;display:flex;align-items:center;gap:8px}
-.dl-item .name .ico{font-size:1.1rem}
-.dl-item .type{font-size:.7rem;color:#999;text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
-.dl-btn{background:var(--gold);color:var(--ink);border:none;padding:7px 16px;border-radius:5px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
-.dl-btn:hover{background:var(--gold2)}
-.dl-btn:disabled{opacity:.5;cursor:not-allowed}
-.dl-btn.done{background:#e8f5e9;color:var(--green)}
-/* NOTE BOX */
-.note-box{background:#fff8e7;border:1.5px solid #f0d070;border-radius:8px;padding:14px 18px;font-size:.82rem;color:#7a5c00;margin-bottom:24px;line-height:1.6}
-.note-box strong{display:block;margin-bottom:4px}
-/* EXPIRED */
-.expired-box{text-align:center;padding:52px 24px}
-.expired-box .icon{font-size:3.5rem;margin-bottom:14px}
-.expired-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:8px}
-.expired-box p{color:#888;margin-bottom:24px;font-size:.9rem}
-.expired-box a{background:var(--gold);color:var(--ink);text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:600;font-size:.9rem;display:inline-block}
-/* TOAST */
-.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--ink);color:#fff;padding:10px 22px;border-radius:6px;font-size:.86rem;z-index:9999;transition:transform .3s;pointer-events:none}
+body{font-family:'Inter',sans-serif;background:#f0f4f8;color:#1e293b;min-height:100vh}
+header{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(30,58,95,.08)}
+.logo-area{display:flex;align-items:center;gap:14px}
+.logo-area img{height:46px;object-fit:contain}
+.logo-text strong{font-size:1.05rem;font-weight:700;color:#1e3a5f;display:block}
+.logo-text small{font-size:.68rem;color:#64748b;letter-spacing:.1em;text-transform:uppercase}
+.new-order{font-size:.8rem;color:#1e3a5f;text-decoration:none;border:1.5px solid #e2e8f0;padding:7px 16px;border-radius:8px;font-weight:600;transition:all .2s}
+.new-order:hover{border-color:#1e3a5f}
+.container{max-width:680px;margin:0 auto;padding:48px 24px}
+.success-top{text-align:center;margin-bottom:36px}
+.check-circle{width:76px;height:76px;background:linear-gradient(135deg,#059669,#10b981);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 24px rgba(5,150,105,.3)}
+.check-circle svg{width:36px;height:36px;stroke:#fff;stroke-width:2.5;fill:none}
+.success-top h1{font-size:2rem;font-weight:700;margin-bottom:8px}
+.success-top p{color:#64748b;font-size:.9rem;max-width:400px;margin:0 auto}
+.meta-row{background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;padding:16px 22px;margin-bottom:22px;display:flex;gap:24px;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.mi label{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:#94a3b8;font-weight:600;display:block;margin-bottom:2px}
+.mi span{font-size:.88rem;font-weight:600;color:#1e293b}
+.note{background:#fefce8;border:1.5px solid #fde047;border-radius:10px;padding:14px 18px;font-size:.82rem;color:#713f12;margin-bottom:22px;line-height:1.65}
+.note strong{display:block;margin-bottom:3px}
+.sec-label{font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#1e3a5f;margin-bottom:12px}
+.dl-all-btn{width:100%;background:linear-gradient(135deg,#1e3a5f,#2563a8);color:#fff;border:none;border-radius:10px;padding:15px;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:14px;transition:all .2s}
+.dl-all-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(30,58,95,.28)}
+.dl-all-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.dl-list{display:flex;flex-direction:column;gap:8px}
+.dl-row{background:#fff;border:1.5px solid #e2e8f0;border-radius:9px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:border-color .2s}
+.dl-row:hover{border-color:#1e3a5f}
+.dl-row .info .name{font-size:.87rem;font-weight:600;color:#1e293b}
+.dl-row .info .type{font-size:.7rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;margin-top:1px}
+.dl-btn{background:#1e3a5f;color:#fff;border:none;padding:7px 16px;border-radius:6px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:all .2s}
+.dl-btn:hover{background:#2563a8}
+.dl-btn:disabled{opacity:.55;cursor:not-allowed}
+.dl-btn.done{background:#dcfce7;color:#166534;border:1px solid #86efac}
+.expired{text-align:center;padding:52px 20px;background:#fff;border-radius:16px;margin-top:20px}
+.expired .icon{font-size:3.5rem;margin-bottom:14px}
+.expired h2{font-size:1.5rem;font-weight:700;margin-bottom:8px}
+.expired p{color:#64748b;margin-bottom:22px;font-size:.9rem}
+.expired a{background:#1e3a5f;color:#fff;text-decoration:none;padding:12px 28px;border-radius:8px;font-weight:600;font-size:.9rem;display:inline-block}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(70px);background:#1e293b;color:#fff;padding:10px 22px;border-radius:8px;font-size:.86rem;z-index:9999;transition:transform .3s;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0)}
-.loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.85);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:14px;font-size:.9rem}
-.loading-overlay.show{display:flex}
-.spinner{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite}
+.overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.9);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.overlay.show{display:flex}
+.spinner{width:34px;height:34px;border:3px solid #e2e8f0;border-top-color:#1e3a5f;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:600px){header{padding:0 14px}.container{padding:36px 14px}.order-info{flex-direction:column}}
+@media(max-width:600px){header{padding:0 14px}.container{padding:32px 14px}.meta-row{flex-direction:column;gap:12px}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="brand">AMG Associates<small>GST INVOICE TEMPLATES</small></div>
-  <a href="/" style="color:var(--gold);text-decoration:none;font-size:.8rem;border:1px solid var(--gold);padding:5px 14px;border-radius:3px">← New Order</a>
+  <div class="logo-area">
+    <img src="data:image/png;base64,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" alt="AMG Associates">
+    <div class="logo-text"><strong>AMG Associates</strong><small>GST Invoice Templates</small></div>
+  </div>
+  <a class="new-order" href="/">← New Order</a>
 </header>
-
 <div class="container">
-  <!-- Loaded dynamically -->
   <div id="mainContent"></div>
 </div>
-
 <div class="toast" id="toast"></div>
-<div class="loading-overlay" id="loading"><div class="spinner"></div><span>Preparing files...</span></div>
-
+<div class="overlay" id="overlay"><div class="spinner"></div><span>Preparing files...</span></div>
 <script>
-const params = new URLSearchParams(window.location.search);
-const token  = params.get('token') || sessionStorage.getItem('amg_token');
+const token = new URLSearchParams(window.location.search).get('token') || sessionStorage.getItem('amg_token');
 
 async function init(){
-  if(!token){ showExpired('No download token found.'); return; }
-  // Fetch order info from token (decode client-side just to show order id, actual auth on server)
+  if(!token){showExpired('No download token found.');return;}
   try{
-    // Try a HEAD request to validate token
-    const r = await fetch('/api/download/'+token, { method:'HEAD' });
-    if(r.status===401){ showExpired('This download link has expired (valid for 24 hours).'); return; }
-    if(r.status===403){ showExpired('Payment not confirmed for this order.'); return; }
-    // Decode JWT payload (no verification needed client-side, just for display)
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    showDownloads(token, payload.orderId);
-  }catch(e){
-    // If HEAD not supported, just show downloads and let server validate on actual download
-    showDownloads(token, '—');
-  }
+    const r=await fetch('/api/store');
+    const d=await r.json();
+    render(token,d.invoices);
+  }catch(e){showExpired('Could not connect to server.');}
 }
 
-async function showDownloads(token, orderId){
-  // Fetch order details to know which invoices were purchased
-  // We do this by attempting a small fetch; server validates token
-  // For display, we use the store API to get invoice list
-  try{
-    const storeR = await fetch('/api/store');
-    const store  = await storeR.json();
-    // We don't know which invoices without order details, so show all purchased ones
-    // The server will validate per-invoice on download
-    // Show a generic "your order" UI — downloads hit server which verifies
-    renderDownloadPage(token, orderId, store);
-  }catch(e){
-    showExpired('Could not load invoice list. Server may be down.');
-  }
-}
+const ICONS={'Simple Invoice':'🧾','Delivery Challan':'🚚','Quotation':'📋','Proforma Invoice':'📄','Bill to Ship to':'📦'};
 
-function renderDownloadPage(token, orderId, store){
-  const shortId = orderId !== '—' ? orderId.slice(0,8).toUpperCase() : '—';
-  document.getElementById('mainContent').innerHTML = `
-    <div class="success-banner">
-      <div class="check-circle">
-        <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h1>Payment Confirmed!</h1>
-      <p>Your customized GST invoice templates are ready to download. All files have your company details embedded.</p>
+function render(token,invoices){
+  document.getElementById('mainContent').innerHTML=`
+    <div class="success-top">
+      <div class="check-circle"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h1>Payment Confirmed! 🎉</h1>
+      <p>Your 13 customized GST invoice templates are ready. Each file contains your company details.</p>
     </div>
-
-    <div class="order-info">
-      <div class="oi-item"><label>Order ID</label><span>#${shortId}</span></div>
-      <div class="oi-item"><label>Status</label><span style="color:var(--green)">✅ Paid &amp; Ready</span></div>
-      <div class="oi-item"><label>Link valid for</label><span>24 hours</span></div>
+    <div class="meta-row">
+      <div class="mi"><label>Status</label><span style="color:#059669">✅ Paid &amp; Ready</span></div>
+      <div class="mi"><label>Templates</label><span>13 Formats</span></div>
+      <div class="mi"><label>Link Valid</label><span>24 Hours</span></div>
     </div>
-
-    <div class="note-box">
+    <div class="note">
       <strong>💡 How to use your invoices</strong>
-      Open the downloaded .xlsx files in Microsoft Excel, LibreOffice Calc, or Google Sheets. Your company name, address, GSTIN, PAN and contact details are already filled in. Just add your customer details and item rows.
+      Open the .xlsx files in Microsoft Excel, Google Sheets, or LibreOffice. Your company name, address, GSTIN, PAN and phone are already filled in. Add your customer details and invoice items to get started.
     </div>
-
-    <div class="dl-section-title">Download Your Invoices</div>
-
-    <button class="dl-all-btn" onclick="downloadAll('${token}')">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download All Selected Invoices (ZIP)
+    <div class="sec-label">Download Your Customized Invoices</div>
+    <button class="dl-all-btn" id="dlAllBtn" onclick="dlAll('${token}')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download All 13 Invoices as ZIP
     </button>
-
-    <div class="dl-list" id="dlList">
-      ${store.invoices.map(inv=>`
-        <div class="dl-item" id="dlrow_${inv.id}">
-          <div>
-            <div class="name"><span class="ico">${inv.icon}</span>${inv.name}</div>
+    <div class="dl-list">
+      ${invoices.map(inv=>`
+        <div class="dl-row">
+          <div class="info">
+            <div class="name">${ICONS[inv.type]||'📄'} ${inv.name}</div>
             <div class="type">${inv.type}</div>
           </div>
-          <button class="dl-btn" onclick="downloadOne('${token}','${inv.id}',this)">⬇ Download</button>
+          <button class="dl-btn" id="b_${inv.id}" onclick="dlOne('${token}','${inv.id}',this)">⬇ Download</button>
         </div>`).join('')}
     </div>
-
-    <p style="text-align:center;font-size:.78rem;color:#bbb">Need help? Contact AMG Associates. Download link expires in 24 hours from payment.</p>
-  `;
+    <p style="text-align:center;font-size:.76rem;color:#94a3b8;margin-top:20px">Link expires in 24 hours. Contact <a href="mailto:info@amgassociate.net" style="color:#1e3a5f">info@amgassociate.net</a> for support.</p>`;
 }
 
-async function downloadAll(token){
-  showLoad();
+async function dlAll(token){
+  const btn=document.getElementById('dlAllBtn');
+  btn.disabled=true; btn.innerHTML='⏳ Preparing ZIP...';
+  document.getElementById('overlay').classList.add('show');
   try{
-    const resp = await fetch('/api/download/'+token);
-    if(resp.status===401){ hideLoad(); showExpired('Download link expired.'); return; }
-    if(resp.status===403){ hideLoad(); toast('Payment not confirmed for this order.'); return; }
-    if(!resp.ok){ hideLoad(); toast('Download failed: '+resp.statusText); return; }
-    const blob = await resp.blob();
-    const cd   = resp.headers.get('content-disposition')||'';
-    const name = cd.match(/filename="?([^"]+)"?/)?.[1] || 'GST_Invoices.zip';
-    triggerDownload(blob, name);
-    hideLoad();
-    toast('✅ All invoices downloaded!');
-  }catch(e){ hideLoad(); toast('Error: '+e.message); }
+    const resp=await fetch('/api/download/'+token);
+    if(resp.status===401){showExpired('Download link expired.');return;}
+    if(!resp.ok){toast('Download failed.');return;}
+    const blob=await resp.blob();
+    const cd=resp.headers.get('content-disposition')||'';
+    trigger(blob, cd.match(/filename="?([^"]+)"?/)?.[1]||'GST_Invoices.zip');
+    btn.innerHTML='✅ All Downloaded!';
+    toast('✅ All 13 invoices downloaded!');
+  }catch(e){toast('Error: '+e.message);btn.disabled=false;btn.innerHTML='⬇ Download All 13 as ZIP';}
+  finally{document.getElementById('overlay').classList.remove('show');}
 }
 
-async function downloadOne(token, invoiceId, btn){
-  btn.disabled=true; btn.textContent='⏳ Preparing...';
+async function dlOne(token,id,btn){
+  btn.disabled=true; btn.textContent='⏳';
   try{
-    const resp = await fetch(`/api/download-single/${token}/${invoiceId}`);
-    if(resp.status===401){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Link expired.'); return; }
-    if(resp.status===403){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Not in your order.'); return; }
-    if(!resp.ok){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Download failed.'); return; }
-    const blob = await resp.blob();
-    const cd   = resp.headers.get('content-disposition')||'';
-    const name = cd.match(/filename="?([^"]+)"?/)?.[1] || invoiceId+'.xlsx';
-    triggerDownload(blob, name);
-    btn.textContent='✅ Downloaded'; btn.classList.add('done');
-  }catch(e){ btn.disabled=false; btn.textContent='⬇ Download'; toast('Error: '+e.message); }
+    const resp=await fetch('/api/download-single/'+token+'/'+id);
+    if(!resp.ok){btn.disabled=false;btn.textContent='⬇ Download';toast('Failed.');return;}
+    const blob=await resp.blob();
+    const cd=resp.headers.get('content-disposition')||'';
+    trigger(blob, cd.match(/filename="?([^"]+)"?/)?.[1]||id+'.xlsx');
+    btn.textContent='✅ Done'; btn.classList.add('done');
+  }catch(e){btn.disabled=false;btn.textContent='⬇ Download';toast('Error: '+e.message);}
 }
 
-function triggerDownload(blob, filename){
-  const url = URL.createObjectURL(blob);
-  const a   = document.createElement('a');
-  a.href=url; a.download=filename; a.click();
-  setTimeout(()=>URL.revokeObjectURL(url),3000);
-}
+function trigger(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),3000);}
 
 function showExpired(msg){
   document.getElementById('mainContent').innerHTML=`
-    <div class="expired-box">
+    <div class="expired">
       <div class="icon">⏰</div>
       <h2>Link Expired or Invalid</h2>
       <p>${msg}</p>
       <a href="/">Place a New Order</a>
-    </div>`;
-}
+    </div>`;}
 
-function showLoad(){ document.getElementById('loading').classList.add('show'); }
-function hideLoad(){ document.getElementById('loading').classList.remove('show'); }
-function toast(msg){ const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500); }
-
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
 init();
 </script>
 </body>

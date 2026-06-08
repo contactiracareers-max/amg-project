@@ -189,6 +189,69 @@
       "total": 105,
       "paymentRef": "TEST_PAY_001",
       "paidAt": "2026-06-02T12:59:39.602Z"
+    },
+    {
+      "id": "95a9a35d-4a39-49c7-9e87-2ee7bffae4cd",
+      "status": "paid",
+      "createdAt": "2026-06-08T05:15:48.898Z",
+      "company": {
+        "companyName": "Rain Finserv Pvt Ltd",
+        "address": "708A 7th Floor Sakar 9 Ahmedabad 380009",
+        "phone": "+91 8320184186",
+        "email": "info@rainfinserv.com",
+        "gstin": "24AABCR1234F1ZK",
+        "pan": "AABCR1234F"
+      },
+      "logoPath": null,
+      "total": 299,
+      "paidAt": "2026-06-08T05:15:48.951Z"
+    },
+    {
+      "id": "33d6d64c-905a-48b3-8133-304e52b4064a",
+      "status": "paid",
+      "createdAt": "2026-06-08T05:20:57.547Z",
+      "company": {
+        "companyName": "Rain Finserv Pvt Ltd",
+        "address": "708A Sakar 9 Ahmedabad",
+        "phone": "+918320184186",
+        "email": "info@rain.com",
+        "gstin": "24AABCR1234F1ZK",
+        "pan": "AABCR1234F"
+      },
+      "logoPath": null,
+      "total": 299,
+      "paidAt": "2026-06-08T05:21:00.676Z"
+    },
+    {
+      "id": "3900430d-df10-46ab-b1a6-ad55ca6e6982",
+      "status": "paid",
+      "createdAt": "2026-06-08T05:21:52.381Z",
+      "company": {
+        "companyName": "Rain Finserv Pvt Ltd",
+        "address": "708A Sakar 9 Ahmedabad",
+        "phone": "+918320184186",
+        "email": "info@rain.com",
+        "gstin": "24AABCR1234F1ZK",
+        "pan": "AABCR1234F"
+      },
+      "logoPath": null,
+      "total": 299,
+      "paidAt": "2026-06-08T05:21:52.417Z"
+    },
+    {
+      "id": "fdf37924-4347-4769-8cfc-803a474f5a2c",
+      "status": "pending",
+      "createdAt": "2026-06-08T05:50:01.211Z",
+      "company": {
+        "companyName": "Test Co",
+        "address": "Ahmedabad",
+        "phone": "9876543210",
+        "email": "test@test.com",
+        "gstin": "24TEST0001Z",
+        "pan": "TEST0001Z"
+      },
+      "logoPath": null,
+      "total": 299
     }
   ]
 }
